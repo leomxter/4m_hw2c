@@ -20,3 +20,8 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path("", include("posts.urls")),    
 ]
+
+urlpatterns1 = [
+    path('admin/', admin.site.urls),
+    path("", include("users.urls")),    
+]
