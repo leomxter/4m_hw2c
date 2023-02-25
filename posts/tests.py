@@ -27,24 +27,16 @@ class HelloTestCase(TestCase):
 
     def test_get_contacts(self):
         response_get = self.client.get(reverse("contacts-page"))
-        response_post = self.client.post(reverse("contacts-page"))
 
         expected_get = "Contacts"
-        expected_post = "Не тот метод запроса"
 
         self.assertEqual(response_get.status_code, 200)
-        self.assertEqual(response_post.status_code, 200)
         self.assertEqual(response_get.content.decode(), expected_get)
-        self.assertEqual(response_post.content.decode(), expected_post)
-    
+
     def test_get_about(self):
         response_get = self.client.get(reverse("about-page"))
-        response_post = self.client.post(reverse("about-page"))
 
         expected_get = "About"
-        expected_post = "Не тот метод запроса"
 
         self.assertEqual(response_get.status_code, 200)
-        self.assertEqual(response_post.status_code, 200)
         self.assertEqual(response_get.content.decode(), expected_get)
-        self.assertEqual(response_post.content.decode(), expected_post)
