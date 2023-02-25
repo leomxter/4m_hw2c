@@ -23,17 +23,24 @@ def hello(request):
     # "Content-Dispositon": "attachment; file-name: file.xls"
     }
 
-    return HttpResponse(body, headers = headers, status = 500)
+    return HttpResponse(body, headers = headers, status = 200)
 
 def get_index(request):
-    print(request.user)
-    if request.method == "GET":
-        return HttpResponse("Main Page")
-    else:
-        return HttpResponse("Не тот метод запроса")
+    context = {
+        "title": 'Main Page',
+        "my_list": [1, 2, 3, 4],
+    }
+    return render(request, 'posts/index.html', context=context)
+
 
 def get_contacts(request):
-    return HttpResponse("Contacts")
+    context = {
+        "title": 'Контакты'
+    }
+    return render(request, 'posts/contacts.html', context=context)
 
 def get_about(request):
-    return HttpResponse("About")
+    context = {
+        "title": 'Страница о нас'
+    }
+    return render(request, 'posts/about.html', context=context)

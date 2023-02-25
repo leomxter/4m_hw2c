@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% block content %}
+    <h1>Это Главная Страница</h1>
+<ol>
+    {% for i in my_list %}
+        {% if i == 4 %}
+        <li>{{ i }}</li>
+        {% endif %}
+    {% endfor %}
+</ol>
+
+    <a href="{% url 'about-page' %}">Страница о нас</a>
+    <a href="{% url 'contacts-page' %}">Страница контакты</a>
+
+{% endblock %}
