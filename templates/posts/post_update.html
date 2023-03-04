@@ -1,5 +1,27 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<h1>Обновления</h1>
+    <h1>Post Update</h1>
+
+    <form action="" method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Обновить запись</button>
+    </form>
+
+    <!-- <a href="{% url 'about-page' %}">Страница о нас</a> -->
+    <form action="{% url 'about-page' %}" method="get">
+        {% csrf_token %}
+        <button type="submit">Страница о нас</button>
+        </form>
+    <!-- <a href="{% url 'contacts-page' %}">Контакты</a>-->
+    <form action="{% url 'contacts-page' %}" method="get">
+        {% csrf_token %}
+        <button type="submit">Контакты</button>
+        </form>
+    <!-- <a href="{% url 'index-page' %}">Главная</a> -->
+    <form action="{% url 'index-page' %}" method="get">
+        {% csrf_token %}
+        <button type="submit">На главную</button>
+        </form>
 {% endblock %}

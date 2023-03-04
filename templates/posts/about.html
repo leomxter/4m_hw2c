@@ -2,7 +2,16 @@
 
 {% block content %}
 <h1>Страница о нас</h1>
-    <a href="{% url 'index-page' %}">На главную</a>
-    <a href="{% url 'contacts-page' %}">Страница контакты</a>
+    <!-- <a href="{% url 'index-page' %}">На главную</a> -->
+    <form action="{% url 'index-page' %}" method="get">
+        {% csrf_token %}
+        <button type="submit">На главную</button>
+        </form>
+
+    <!-- <a href="{% url 'contacts-page' %}">Страница контакты</a> -->
+    <form action="{% url 'contacts-page' %}" method="get">
+        {% csrf_token %}
+        <button type="submit">Страница контакты</button>
+        </form>
 {% endblock %}
 

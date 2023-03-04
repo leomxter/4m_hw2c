@@ -1,7 +1,18 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<h1>Контакты</h1>
-    <a href="{% url 'about-page' %}">Страница о нас</a>
-    <a href="{% url 'index-page' %}">На главную</a>
+
+    <h1>Страница с контактами</h1>
+
+    <!-- <a href="{% url 'index-page' %}">На главную</a> -->
+    <form action="{% url 'index-page' %}" method="get">
+        {% csrf_token %}
+        <button type="submit">На главную</button>
+        </form>
+    <!-- <a href="{% url 'about-page' %}">О нас</a> -->
+    <form action="{% url 'about-page' %}" method="get">
+        {% csrf_token %}
+        <button type="submit"> о нас</button>
+        </form>
+
 {% endblock %}

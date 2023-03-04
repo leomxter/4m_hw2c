@@ -1,5 +1,42 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<h1>Детали</h1>
+
+    <figure class="text-center">
+        <blockquote class="blockquote">
+            <h1 class="display-6">{{ post.title }}</h1>
+        </blockquote>
+        <figcaption class="blockquote-footer">
+            {{ post.created }}
+        </figcaption>
+    </figure>
+    <p>{{ post.content }}</p>
+
+    <br>
+    <form action="{% url 'post-delete' post.id %}" method="get">
+    {% csrf_token %}
+    <button type="submit">Удалить пост</button>
+    </form>
+    <br>
+
+    <form action="{% url 'post-update' post.id %}" method="get">
+        {% csrf_token %}
+        <button type="submit">Редактировать пост</button>
+        </form>
+
+    <!-- <a href="{% url 'about-page' %}">Страница о нас</a> -->
+    <form action="{% url 'about-page' %}" method="get">
+        {% csrf_token %}
+        <button type="submit">Страница о нас</button>
+        </form>
+    <!-- <a href="{% url 'contacts-page' %}">Контакты</a>-->
+    <form action="{% url 'contacts-page' %}" method="get">
+        {% csrf_token %}
+        <button type="submit">Контакты</button>
+        </form>
+    <!-- <a href="{% url 'index-page' %}">Главная</a> -->
+    <form action="{% url 'index-page' %}" method="get">
+        {% csrf_token %}
+        <button type="submit">На главную</button>
+        </form>
 {% endblock %}
