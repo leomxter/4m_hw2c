@@ -9,19 +9,5 @@
     <button type="submit">Обновить запись</button>
     </form>
 
-    <!-- <a href="{% url 'about-page' %}">Страница о нас</a> -->
-    <form action="{% url 'about-page' %}" method="get">
-        {% csrf_token %}
-        <button type="submit">Страница о нас</button>
-        </form>
-    <!-- <a href="{% url 'contacts-page' %}">Контакты</a>-->
-    <form action="{% url 'contacts-page' %}" method="get">
-        {% csrf_token %}
-        <button type="submit">Контакты</button>
-        </form>
-    <!-- <a href="{% url 'index-page' %}">Главная</a> -->
-    <form action="{% url 'index-page' %}" method="get">
-        {% csrf_token %}
-        <button type="submit">На главную</button>
-        </form>
+    {% include 'posts/includes/links_include.html' %}
 {% endblock %}

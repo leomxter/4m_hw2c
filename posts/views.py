@@ -65,7 +65,6 @@ class PostUpdateView(generic.UpdateView):
     fields = ["title", "content"]
     success_url = reverse_lazy("index-page")
 
-
 class PostDeleteView(generic.DeleteView):
     model = Post
     success_url = reverse_lazy("index-page")
@@ -76,7 +75,6 @@ class AboutView(generic.TemplateView):
     extra_context = {
         "title": "Страница о нас",
     }
-
 
 # CRUD - Create, Retrieve, Update, Delete
 
@@ -101,3 +99,6 @@ def post_delete(request):
 
 def post_update(request):
     return render(request, "posts/post_update.html")
+
+def post_confirm(request):
+    return render(request, "posts/post_confirm.html")
