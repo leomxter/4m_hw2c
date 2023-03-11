@@ -9,7 +9,7 @@
             <h5 class="card-title">{{ post.title }}</h5>
             <h6 class="card-subtitle mb-2 text-muted">{{ post.created }}</h6>
             <p class="card-text">{{ post.content|truncatewords:10 }}</p>
-            <form action="{% url 'post-detail' post.pk %}" method="get">
+            <form action="{% url 'post-detail' post.id %}" method="get">
                 {% csrf_token %}
                 <button type="submit">Читать полностью</button>
                 </form>
@@ -36,5 +36,5 @@
     <form action="{% url 'post-create' %}" method="get">
         {% csrf_token %}
         <button type="submit">Создать пост</button>
-        </form>
+    </form>
 {% endblock %}
