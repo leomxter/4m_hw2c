@@ -4,7 +4,7 @@ from django.views import generic
 from django.urls import reverse_lazy
 
 from posts.forms import CommentForm, PostForm
-from posts.models import Post, Comment, PostCreate
+from posts.models import Post
 
 
 def hello(request):
@@ -81,14 +81,11 @@ class PostDetailView(generic.DetailView):
         context["title"] = "Просмотр поста"
         return context
 
-
 class PostCreateView(generic.CreateView):
     model = Post
     template_name = "posts/post_create.html"
-    def get_form_class(self, PostForm):
-        return PostForm
+    form_class = PostForm
     success_url = reverse_lazy("index-page")
-
 
 class PostUpdateView(generic.UpdateView):
     model = Post

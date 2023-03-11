@@ -29,16 +29,3 @@ class Comment(models.Model):
         ordering = ("-created",)
         verbose_name = "Комментарий"
         verbose_name_plural = "Комментарии"
-
-class PostCreate(models.Model):
-    title = models.CharField(max_length=20, verbose_name="Заголовок")
-    content = models.CharField(max_length=500, verbose_name="Содержание")
-    created = models.DateTimeField(auto_now=True, verbose_name="Дата создания")
-
-    def __str__(self):
-        return f"{self.title} - {self.content}"
-    
-    class Meta:
-        ordering = ("-created",)
-        verbose_name = "Пост"
-        verbose_name_plural = "Посты"
