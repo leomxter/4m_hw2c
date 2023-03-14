@@ -52,12 +52,12 @@
     <br>
     <form action="{% url 'post-delete' post.id %}" method="get">
         {% csrf_token %}
-        <button type="submit">Удалить пост</button>
+        <button type="hidden">Удалить пост</button>
     </form>
     <br>
 
     <a href="{% url 'post-update' post.id %}">
-        <button>Обновить пост</button>
+        <button type="hidden">Обновить пост</button>
     </a><br>
 
     {% include 'posts/includes/links_include.html' %}
